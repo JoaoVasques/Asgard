@@ -1,6 +1,5 @@
 ; Modules for Go
 
-(provide 'golang)
+(provide 'my-golang)
 
 (require 'go-mode-autoloads)
-

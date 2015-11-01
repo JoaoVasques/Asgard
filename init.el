@@ -24,8 +24,8 @@
 
 (add-to-list 'load-path (concat user-emacs-directory "settings"))
 
-(require 'golang)
-(require 'clang)
+(require 'my-golang)
+(require 'my-clang)
 (require 'my-scala)
 (require 'my-core)
 

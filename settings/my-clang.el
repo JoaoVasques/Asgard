@@ -1,6 +1,6 @@
 ; Modules for C programming
 
-(provide 'clang)
+(provide 'my-clang)
 
 (require 'cc-mode)
 (ac-config-default)
