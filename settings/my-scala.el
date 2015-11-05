@@ -65,3 +65,14 @@
   (find-file-other-window (format "%s%sTest.scala" (replace-regexp-in-string "app\/" "test\/" (file-name-directory buffer-file-name)) (file-name-nondirectory (file-name-sans-extension buffer-file-name)))))
 
 (global-set-key (kbd "s-T") 'jump-to-test)
+
+
+; Adds suport for Dash
+(autoload 'dash-at-point "dash-at-point"
+          "Search the word at point with Dash." t nil)
+(global-set-key "\C-cd" 'dash-at-point)
+(global-set-key "\C-ce" 'dash-at-point-with-docset)
+
+(add-to-list 'dash-at-point-mode-alist '(scala-mode . "scala"))
+(add-to-list 'dash-at-point-mode-alist '(playscala-mode . "playscala-mode"))
+(add-to-list 'dash-at-point-mode-alist '(akka-mode . "akka"))
