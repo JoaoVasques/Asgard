@@ -49,3 +49,20 @@
 ;; Control and mouse-wheel-up to increase font size in buffer, down to decrease
 (global-set-key [C-wheel-up] '(lambda () (interactive) (text-scale-increase 1)))
 (global-set-key [C-wheel-down] '(lambda () (interactive) (text-scale-decrease 1)))
+
+(require 'auto-complete)
+(require 'pallet)
+
+(custom-set-variables
+ '(markdown-command "/usr/local/bin/pandoc"))
+
+(require 'yaml-mode)
+    (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+
+; Adds suport for Dash
+(autoload 'dash-at-point "dash-at-point"
+          "Search the word at point with Dash." t nil)
+(global-set-key "\C-cd" 'dash-at-point)
+(global-set-key "\C-ce" 'dash-at-point-with-docset)
+
+(require 'magit)
