@@ -1,6 +1,12 @@
 ; Modules for scala
 (provide 'my-scala)
 
+(setq-local my-scala-packages '(ensime multiple-cursors scala-mode2))
+
+(dolist (package my-scala-packages)
+	(unless (package-installed-p package)
+		(package-install package)))
+
 (require 'ensime)
 ;; Start ensime mode whenever we open scala mode, e.g. open a .scala file
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
@@ -10,7 +16,6 @@
 ;; Don't show the magit instructions every time
 (setq magit-last-seen-setup-instructions "1.4.0")
 
-(require 'multiple-cursors)
 (require 'multiple-cursors)
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)

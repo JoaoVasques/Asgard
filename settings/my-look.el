@@ -16,8 +16,14 @@
 (setq term-default-fg-color "#06d4f2") ; letters
 
 ;; Color theme
-(require 'sublime-themes)
-(load-theme 'spolsky)
+;(require 'sublime-themes)
+;(load-theme 'spolsky)
+
+(if (package-installed-p 'dracula-theme)
+    (load-theme 'dracula t)
+  (package-install 'dracula-theme)
+    )
 
 ; Set font size
 (set-face-attribute 'default nil :height 130)
+
