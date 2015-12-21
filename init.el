@@ -9,7 +9,7 @@
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 
 ;; List the package we want
-(setq package-list '(ensime magit multiple-cursors move-text find-file-in-repository dired-details ace-jump-mode yasnippet window-numbering expand-region neotree monokai-theme tidy rainbow-delimiters key-chord markdown-mode slime yafolding))
+;(setq package-list '(ensime magit multiple-cursors move-text find-file-in-repository dired-details ace-jump-mode yasnippet window-numbering expand-region neotree monokai-theme tidy rainbow-delimiters key-chord markdown-mode slime yafolding))
 
 (package-initialize)
 
@@ -18,17 +18,16 @@
 	(package-refresh-contents))
 
 ;; install the packages that are missing, if any
-(dolist (package package-list)
-	(unless (package-installed-p package)
-		(package-install package)))
+;(dolist (package package-list)
+;	(unless (package-installed-p package)
+;		(package-install package)))
 
-;(add-to-list 'load-path (concat user-emacs-directory "settings"))
+(add-to-list 'load-path (concat user-emacs-directory "settings"))
 
-(add-to-list 'load-path "~/.emacs.d/settings")
 
 ;(require 'my-golang)
 ;(require 'my-clang)
-;(require 'my-scala)
+(require 'my-scala)
 (require 'my-core)
 
 (require 'find-file-in-repository)
@@ -73,7 +72,7 @@ by using nxml's indentation rules."
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("0c29db826418061b40564e3351194a3d4a125d182c6ee5178c237a7364f0ff12" default)))
+    ("870a63a25a2756074e53e5ee28f3f890332ddc21f9e87d583c5387285e882099" "0c29db826418061b40564e3351194a3d4a125d182c6ee5178c237a7364f0ff12" default)))
  '(markdown-command "/usr/local/bin/pandoc"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

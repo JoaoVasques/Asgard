@@ -1,6 +1,13 @@
 ; Key definitions
 (provide 'my-keysets)
 
+(setq-local keysets-packages '(ace-jump-mode expand-region))
+
+;; install the packages that are missing, if any
+(dolist (package keysets-packages)
+	(unless (package-installed-p package)
+		(package-install package)))
+
 (global-linum-mode 1)
 (global-set-key [f7] 'kill-whole-line)
 (global-set-key (kbd "M-s M-m") 'magit-status)

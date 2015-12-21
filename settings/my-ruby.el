@@ -1,6 +1,13 @@
 ; modules for ruby
 (provide 'my-ruby)
 
+(setq ruby-packages '(cl compile projectile))
+
+;; install the ruby packages that are missing, if any
+(dolist (package ruby-packages)
+	(unless (package-installed-p package)
+		(package-install package)))
+
 (add-to-list 'dash-at-point-mode-alist '(ruby-mode . "ruby"))
 
  (ac-config-default)

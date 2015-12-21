@@ -2,6 +2,13 @@
 
 (provide 'my-core)
 
+(setq-local my-core-packages '(multiple-cursors move-text find-file-in-repository dired-details ace-jump-mode yasnippet window-numbering neotree whitespace key-chord cl auto-complete pallet yaml-mode magit feature-mode tidy rainbow-delimiters key-chord markdown-mode slime yafolding))
+
+;; install the packages that are missing, if any
+(dolist (package my-core-packages)
+	(unless (package-installed-p package)
+		(package-install package)))
+
 ;; Put temporary and backup files elsewhere
 (setq auto-save-file-name-transforms
           `((".*" ,(concat user-emacs-directory "auto-save/") t)))
@@ -66,3 +73,12 @@
 (global-set-key "\C-ce" 'dash-at-point-with-docset)
 
 (require 'magit)
+
+(require 'feature-mode)
+(add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))
+(setq feature-default-language "ruby")
+
+(if (package-installed-p 'emamux)
+    (require 'emamux)
+  (package-install 'emamux)
+  )
