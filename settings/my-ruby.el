@@ -1,7 +1,7 @@
 ; modules for ruby
 (provide 'my-ruby)
 
-(setq ruby-packages '(cl compile projectile))
+(setq ruby-packages '(cl compile projectile feature-mode))
 
 ;; install the ruby packages that are missing, if any
 (dolist (package ruby-packages)
@@ -91,4 +91,8 @@ of FILE in the current directory, suitable for creation"
 ;; PROJECTILE
 (projectile-global-mode)
 (setq projectile-enable-caching t)
+
+;; CUCUMBER
+(require 'feature-mode)
+(add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))
 

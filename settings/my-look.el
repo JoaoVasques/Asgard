@@ -19,9 +19,9 @@
 ;(require 'sublime-themes)
 ;(load-theme 'spolsky)
 
-(if (package-installed-p 'dracula-theme)
-    (load-theme 'dracula t)
-  (package-install 'dracula-theme)
+(if (package-installed-p 'noctilux-theme)
+    (load-theme 'noctilux t)
+  (package-install 'noctilux-theme)
     )
 
 ; Set font size

@@ -82,3 +82,8 @@
     (require 'emamux)
   (package-install 'emamux)
   )
+
+(if (package-installed-p 'helm)
+    (require 'helm)
+  (package-install 'helm)
+    )
