@@ -16,13 +16,12 @@
 (setq term-default-fg-color "#06d4f2") ; letters
 
 ;; Color theme
-;(require 'sublime-themes)
-;(load-theme 'spolsky)
-
-(if (package-installed-p 'noctilux-theme)
-    (load-theme 'noctilux t)
-  (package-install 'noctilux-theme)
-    )
+(if (package-installed-p 'base16-theme)
+    (load-theme 'base16-eighties-dark t)
+  (progn
+    (package-install 'base16-theme)
+    (load-theme 'base16-eighties-dark t)
+    ))
 
 ; Set font size
 (set-face-attribute 'default nil :height 130)
