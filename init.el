@@ -29,6 +29,7 @@
 (require 'my-core)
 (require 'my-elixir)
 (require 'my-scala)
+(require 'my-swift)
 
 (require 'find-file-in-repository)
 
