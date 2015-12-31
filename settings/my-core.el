@@ -2,7 +2,8 @@
 
 (provide 'my-core)
 
-(setq-local my-core-packages '(multiple-cursors move-text find-file-in-repository dired-details ace-jump-mode yasnippet window-numbering neotree whitespace key-chord cl auto-complete pallet yaml-mode magit feature-mode tidy rainbow-delimiters key-chord markdown-mode slime yafolding))
+(setq-local my-core-packages '(multiple-cursors move-text find-file-in-repository dired-details ace-jump-mode yasnippet window-numbering neotree whitespace key-chord cl auto-complete pallet yaml-mode magit feature-mode tidy rainbow-delimiters key-chord markdown-mode slime yafolding multi-term))
+
 
 ;; install the packages that are missing, if any
 (dolist (package my-core-packages)
@@ -16,6 +17,10 @@
       `(("." . ,(expand-file-name
                  (concat user-emacs-directory "backups")))))
 (setq create-lockfiles nil)
+
+;; MultiTerm
+(require 'multi-term)
+(setq multi-term-program "/bin/bash")
 
 (require 'yasnippet)
 (yas-global-mode 1)

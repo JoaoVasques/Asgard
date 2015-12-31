@@ -38,6 +38,8 @@
 (require 'dired-details)
 (dired-details-install)
 
+(require 'livedown)
+
 ;; Always pick up the most recent file from the filesystem
 (global-auto-revert-mode 1)
 
