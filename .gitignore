@@ -40,3 +40,12 @@ ensime/
 
 # snippets
 snippets/
+
+# eshell
+eshell/
+
+# projectile
+projectile*
+
+# other things
+ido.last
