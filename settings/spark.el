@@ -9,15 +9,25 @@
   (port 7077)
   (ui-port 8080))
 
+(setf *print-circle* t)
+
 (setq spark_home (getenv "SPARK_HOME"))
 (setq is_spark_running nil)
 
 (defun build-spark-commands (cmd_path)
   (concat spark_home cmd_path))
 
+(defun get-spark-config ()
+  (message spark_config))
+
 (defun get-spark-config-from-log (log_line)
-  (setq-local ip (nth 2 log_line))
-  (print ip))
+  (defun extract-value (position)
+    (car (cdr (split-string (nth position log_line) " "))))
+
+  (setq spark-config (make-spark-config
+   :ip (extract-value 1)
+   :port (extract-value 2)
+   :ui-port (extract-value 3))))
 
 (defun read-lines (filePath)
   "Return a list of lines of a file at filePath."
@@ -31,7 +41,8 @@
   (setq-local cmd (build-spark-commands "/sbin/start-master.sh"))
   (setq-local log_path (nth 4 (split-string (shell-command-to-string cmd))))
   (setq-local first_line (car (read-lines log_path)))
-  (get-spark-config-from-log (split-string first_line "--"))
+  (setq-local splited (split-string first_line "--"))
+  (get-spark-config-from-log splited)
   (setq is_spark_running t))
 
 (defun stop-spark-master ()
@@ -46,7 +57,9 @@
   (interactive)
   (if is_spark_running
       (progn
-        (setq-local master-location "spark://JoaoVasquesMBP.lan:7077")
+        ()
+        (setq-local master-location (concat "spark://" (spark-config-ip spark_config) ":" (spark-config-ui-port spark-config)))
+        (message master-location)
         (setq-local cmd (build-spark-commands (concat "/sbin/start-slave.sh" " " master-location)))
         (shell-command cmd))
     (message "Cannot start slave: Master is not running. Please run: start-spark-master")))

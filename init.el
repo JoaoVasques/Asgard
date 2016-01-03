@@ -30,7 +30,6 @@
 (require 'my-elixir)
 (require 'my-scala)
 (require 'my-swift)
-(require 'apache-spark)
 
 (require 'find-file-in-repository)
 
@@ -88,3 +87,4 @@ by using nxml's indentation rules."
  )
 
 (require 'my-ruby)
+(require 'apache-spark)
