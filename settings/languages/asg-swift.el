@@ -1,7 +1,6 @@
 ; modules for swift
 
-
-(provide 'my-swift)
+(provide 'asg-swift)
 
 ;(setq flycheck-swift-sdk-path "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/")
 ;(setq swift "/usr/bin/swift")

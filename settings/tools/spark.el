@@ -1,5 +1,5 @@
 ; Emacs module for Apache Spark
-(provide 'apache-spark)
+(provide 'spark)
 
 (require 'cl)
 

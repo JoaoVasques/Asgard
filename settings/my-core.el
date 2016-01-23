@@ -2,7 +2,7 @@
 
 (provide 'my-core)
 
-(setq-local my-core-packages '(multiple-cursors move-text find-file-in-repository dired-details ace-jump-mode yasnippet window-numbering neotree whitespace key-chord cl auto-complete pallet yaml-mode magit feature-mode tidy rainbow-delimiters key-chord markdown-mode slime yafolding multi-term))
+(setq-local my-core-packages '(multiple-cursors move-text find-file-in-repository dired-details ace-jump-mode yasnippet window-numbering neotree whitespace key-chord cl auto-complete pallet yaml-mode magit feature-mode tidy rainbow-delimiters key-chord markdown-mode slime yafolding multi-term json-mode flycheck))
 
 
 ;; install the packages that are missing, if any
@@ -17,6 +17,9 @@
       `(("." . ,(expand-file-name
                  (concat user-emacs-directory "backups")))))
 (setq create-lockfiles nil)
+
+;; Json Mode
+(require 'json-mode)
 
 ;; MultiTerm
 (require 'multi-term)
@@ -38,6 +41,9 @@
 
 (setq show-paren-delay 0)
 (show-paren-mode 1)
+
+;; Flycheck
+(global-flycheck-mode)
 
 ;; Save on focus-out
 (defun save-all ()
@@ -91,7 +97,12 @@
 (if (package-installed-p 'helm)
     (require 'helm)
   (package-install 'helm)
-    )
+  )
+
+; helm bindings
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-x r b") 'helm-filtered-bookmarks)
+(global-set-key (kbd "C-x C-f")'helm-find-files)
 
 (defun toggle-fullscreen ()
   "Toggle full screen"

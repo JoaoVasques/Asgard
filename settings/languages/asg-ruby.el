@@ -1,5 +1,5 @@
 ; modules for ruby
-(provide 'my-ruby)
+(provide 'asg-ruby)
 
 (setq ruby-packages '(cl compile projectile feature-mode))
 
