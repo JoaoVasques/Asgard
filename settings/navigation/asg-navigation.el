@@ -1,5 +1,5 @@
 ; Key definitions
-(provide 'my-keysets)
+(provide 'asg-navigation)
 
 (setq-local keysets-packages '(ace-jump-mode expand-region))
 

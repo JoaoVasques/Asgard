@@ -1,5 +1,5 @@
 ; Modules for scala
-(provide 'my-scala)
+(provide 'asg-scala)
 
 (setq-local my-scala-packages '(ensime multiple-cursors scala-mode2))
 

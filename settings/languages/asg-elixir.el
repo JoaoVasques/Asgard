@@ -1,6 +1,6 @@
 ; Elixir Emacs mode
 
-(provide 'my-elixir)
+(provide 'asg-elixir)
 
 (setq-local my-elixir-packages '(elixir-mode alchemist))
 
