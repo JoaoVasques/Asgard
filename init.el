@@ -4,6 +4,7 @@
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
+
 (when (< emacs-major-version 24)
   ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
@@ -11,8 +12,11 @@
 (package-initialize)
 
 ;; Fetch list of packages available
-(unless package-archive-contents
-	(package-refresh-contents))
+(when (not package-archive-contents)
+  (package-refresh-contents))
+
+;(unless package-archive-contents
+;	(package-refresh-contents))
 
 (add-to-list 'load-path (concat user-emacs-directory "settings"))
 

@@ -7,6 +7,10 @@
 	(unless (package-installed-p package)
 		(package-install package)))
 
+;; If necessary, make sure "sbt" and "scala" are in the PATH environment
+(setenv "PATH" (concat "/usr/local/bin/sbt:" (getenv "PATH")))
+(setenv "PATH" (concat "/usr/local/bin/scala:" (getenv "PATH")))
+
 (require 'ensime)
 ;; Start ensime mode whenever we open scala mode, e.g. open a .scala file
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
@@ -14,7 +18,7 @@
 (global-set-key (kbd "C-c C-c c") 'ensime)
 
 ;; Don't show the magit instructions every time
-(setq magit-last-seen-setup-instructions "1.4.0")
+;(setq magit-last-seen-setup-instructions "1.4.0")
 
 (require 'multiple-cursors)
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
