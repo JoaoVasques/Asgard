@@ -2,7 +2,7 @@
 
 (provide 'my-core)
 
-(setq-local my-core-packages '(multiple-cursors move-text find-file-in-repository dired-details ace-jump-mode yasnippet window-numbering neotree whitespace key-chord cl auto-complete pallet yaml-mode magit feature-mode tidy rainbow-delimiters key-chord markdown-mode slime yafolding multi-term json-mode flycheck))
+(setq-local my-core-packages '(multiple-cursors move-text find-file-in-repository dired-details ace-jump-mode yasnippet window-numbering neotree whitespace key-chord cl auto-complete pallet yaml-mode magit feature-mode tidy rainbow-delimiters key-chord markdown-mode slime yafolding multi-term json-mode flycheck google-this))
 
 
 ;; install the packages that are missing, if any
@@ -23,10 +23,10 @@
 
 ;; MultiTerm
 (require 'multi-term)
-(setq multi-term-program "/bin/bash")
+(setq multi-term-program "/bin/zsh")
 
 (require 'yasnippet)
-(yas-global-mode 1)
+;(yas-global-mode 1)
 
 (require 'window-numbering)
 (window-numbering-mode 1)

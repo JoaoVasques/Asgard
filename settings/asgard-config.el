@@ -9,6 +9,7 @@
 (require 'asg-elixir)
 (require 'asg-scala)
 ;(require 'asg-swift)
+(require 'asg-clojure)
 
 (require 'find-file-in-repository)
 
@@ -49,3 +50,4 @@
 
 (require 'asg-ruby)
 (require 'spark)
+(require 'asg-docker)

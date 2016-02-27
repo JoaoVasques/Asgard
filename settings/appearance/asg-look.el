@@ -35,7 +35,7 @@
 (scroll-bar-mode -1)
 
 ;Set font size
-(set-face-attribute 'default nil :height 130)
+(set-face-attribute 'default nil :height 110)
 
 ;System monitoring bar
 (require 'symon)
