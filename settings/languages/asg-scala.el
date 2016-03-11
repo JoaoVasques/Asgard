@@ -8,8 +8,9 @@
 		(package-install package)))
 
 ;; If necessary, make sure "sbt" and "scala" are in the PATH environment
-(setenv "PATH" (concat "/usr/local/bin/sbt:" (getenv "PATH")))
-(setenv "PATH" (concat "/usr/local/bin/scala:" (getenv "PATH")))
+;(setenv "PATH" (concat "/usr/local/bin/sbt:" (getenv "PATH")))
+(setq exec-path (append exec-path '("/usr/local/bin/sbt")))
+;(setenv "PATH" (concat "/usr/local/bin/scala:" (getenv "PATH")))
 
 (require 'ensime)
 ;; Start ensime mode whenever we open scala mode, e.g. open a .scala file
@@ -20,14 +21,14 @@
 ;; Don't show the magit instructions every time
 ;(setq magit-last-seen-setup-instructions "1.4.0")
 
-(require 'multiple-cursors)
-(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+;(require 'multiple-cursors)
+;(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+;(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+;(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+;(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
-(require 'move-text)
-(move-text-default-bindings)
+;(require 'move-text)
+;(move-text-default-bindings)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

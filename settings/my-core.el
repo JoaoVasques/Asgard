@@ -2,8 +2,14 @@
 
 (provide 'my-core)
 
-(setq-local my-core-packages '(multiple-cursors move-text find-file-in-repository dired-details ace-jump-mode yasnippet window-numbering neotree whitespace key-chord cl auto-complete pallet yaml-mode magit feature-mode tidy rainbow-delimiters key-chord markdown-mode slime yafolding multi-term json-mode flycheck google-this))
-
+(setq-local my-core-packages '(multiple-cursors
+				move-text find-file-in-repository dired-details
+				ace-jump-mode yasnippet window-numbering neotree
+				whitespace key-chord cl auto-complete pallet yaml-mode
+				magit feature-mode tidy rainbow-delimiters key-chord
+				markdown-mode slime yafolding multi-term json-mode
+				flycheck google-this powerline
+				))
 
 ;; install the packages that are missing, if any
 (dolist (package my-core-packages)
@@ -17,6 +23,10 @@
       `(("." . ,(expand-file-name
                  (concat user-emacs-directory "backups")))))
 (setq create-lockfiles nil)
+
+;; Powerline
+(require 'powerline)
+(powerline-default-theme)
 
 ;; Json Mode
 (require 'json-mode)
@@ -53,7 +63,6 @@
 
 (require 'key-chord)
 (key-chord-mode 1)
-;;(key-chord-define-global "jx" 'smex)
 
 (set-frame-font "Source Code Pro-18" nil t)
 
@@ -88,21 +97,6 @@
 (require 'feature-mode)
 (add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))
 (setq feature-default-language "ruby")
-
-(if (package-installed-p 'emamux)
-    (require 'emamux)
-  (package-install 'emamux)
-  )
-
-(if (package-installed-p 'helm)
-    (require 'helm)
-  (package-install 'helm)
-  )
-
-; helm bindings
-(global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "C-x r b") 'helm-filtered-bookmarks)
-(global-set-key (kbd "C-x C-f")'helm-find-files)
 
 (defun toggle-fullscreen ()
   "Toggle full screen"
