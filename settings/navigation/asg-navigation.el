@@ -1,7 +1,7 @@
 ; Key definitions
 (provide 'asg-navigation)
 
-(setq-local keysets-packages '(ace-jump-mode expand-region))
+(setq-local keysets-packages '(ace-jump-mode expand-region helm))
 
 ;; install the packages that are missing, if any
 (dolist (package keysets-packages)
@@ -22,9 +22,6 @@
 ;;Uncomment the below to hide the menu
 (menu-bar-mode -1)
 
-;; Uncomment below if you want to disable compile on save
-;; (setq ensime-sbt-compile-on-save nil)
-
 ;; Some general-purpose key bindings
 (global-set-key [kp-subtract] 'undo) ; [Undo]
 (global-set-key (kbd "S-z") 'undo)
@@ -42,7 +39,10 @@
 (setq ido-create-new-buffer 'always)
 (setq ido-file-extensions-order '(".scala" ".org" ".txt" ".py" ".emacs" ".xml" ".el" ".ini" ".cfg" ".cnf"))
 
-
+; helm bindings
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-x r b") 'helm-filtered-bookmarks)
+(global-set-key (kbd "C-x C-f")'helm-find-files)
 
 (require 'ace-jump-mode)
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)

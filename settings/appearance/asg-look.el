@@ -15,21 +15,13 @@
 (setq term-default-bg-color "#040000") ; background
 (setq term-default-fg-color "#06d4f2") ; letters
 
-;; Color theme
- ;; (if (package-installed-p 'base16-theme)
- ;;     (load-theme 'base16-eighties-dark t)
- ;;   (progn
- ;;     (package-install 'base16-theme)
- ;;     (load-theme 'base16-eighties-dark t)
- ;;     ))
-
+; Setup Theme
  (if (package-installed-p 'spacemacs-theme)
      (load-theme 'spacemacs-dark t)
    (progn
      (package-install 'spacemacs-theme)
      (load-theme 'spacemacs-dark t)
      ))
-
 
 ; Disable scroll bar
 (scroll-bar-mode -1)
