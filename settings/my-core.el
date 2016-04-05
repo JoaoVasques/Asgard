@@ -8,7 +8,7 @@
 				whitespace key-chord cl auto-complete pallet yaml-mode
 				magit feature-mode tidy rainbow-delimiters key-chord
 				markdown-mode slime yafolding multi-term json-mode
-				flycheck google-this powerline
+				flycheck google-this powerline git-timemachine
 				))
 
 ;; install the packages that are missing, if any
@@ -92,7 +92,9 @@
 (global-set-key "\C-cd" 'dash-at-point)
 (global-set-key "\C-ce" 'dash-at-point-with-docset)
 
+; Git tools
 (require 'magit)
+(require 'git-timemachine)
 
 (require 'feature-mode)
 (add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))
