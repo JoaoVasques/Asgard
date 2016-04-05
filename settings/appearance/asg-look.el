@@ -15,12 +15,15 @@
 (setq term-default-bg-color "#040000") ; background
 (setq term-default-fg-color "#06d4f2") ; letters
 
-; Setup Theme
- (if (package-installed-p 'spacemacs-theme)
-     (load-theme 'spacemacs-dark t)
+; Setup Theme 
+(setq-local asgard-theme 'spacemacs-theme) ;atom-one-dark-theme
+(setq-local asgard-theme-def 'spacemacs-dark) ;atom-one-dark
+
+(if (package-installed-p asgard-theme)
+     (load-theme asgard-theme-def t)
    (progn
-     (package-install 'spacemacs-theme)
-     (load-theme 'spacemacs-dark t)
+     (package-install asgard-theme)
+     (load-theme asgard-theme-def t)
      ))
 
 ; Disable scroll bar

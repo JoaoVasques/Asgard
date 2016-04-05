@@ -9,12 +9,14 @@
 
 ;; If necessary, make sure "sbt" and "scala" are in the PATH environment
 ;(setenv "PATH" (concat "/usr/local/bin/sbt:" (getenv "PATH")))
-(setq exec-path (append exec-path '("/usr/local/bin/sbt")))
+;(setq exec-path (append exec-path '("/usr/local/bin/sbt")))
+(setq exec-path (append exec-path '("/usr/local/bin")))
 ;(setenv "PATH" (concat "/usr/local/bin/scala:" (getenv "PATH")))
 
 (require 'ensime)
 ;; Start ensime mode whenever we open scala mode, e.g. open a .scala file
-(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+;(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+(add-hook 'scala-mode-hook 'ensime-mode)
 ;; Start ensime with Super-e
 (global-set-key (kbd "C-c C-c c") 'ensime)
 
