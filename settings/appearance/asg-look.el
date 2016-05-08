@@ -16,11 +16,11 @@
 (setq term-default-fg-color "#06d4f2") ; letters
 
 ; Setup Theme
- (if (package-installed-p 'spacemacs-theme)
-     (load-theme 'spacemacs-dark t)
+ (if (package-installed-p 'monokai-theme)
+     (load-theme 'monokai t)
    (progn
-     (package-install 'spacemacs-theme)
-     (load-theme 'spacemacs-dark t)
+     (package-install 'monokai-theme)
+     (load-theme 'monokai t)
      ))
 
 ; Disable scroll bar
