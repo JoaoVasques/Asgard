@@ -1,12 +1,12 @@
 ; Key definitions
 (provide 'asg-navigation)
 
-(setq-local keysets-packages '(ace-jump-mode expand-region helm))
+(require 'asg-common)
 
-;; install the packages that are missing, if any
-(dolist (package keysets-packages)
-	(unless (package-installed-p package)
-		(package-install package)))
+(asg-load-packages '(multiple-cursors neotree ace-jump-mode expand-region helm projectile))
+
+;; Neotree
+(global-set-key (kbd "s-d") 'neotree-toggle)
 
 (global-linum-mode 1)
 (global-set-key [f7] 'kill-whole-line)
@@ -44,6 +44,12 @@
 (global-set-key (kbd "C-x r b") 'helm-filtered-bookmarks)
 (global-set-key (kbd "C-x C-f")'helm-find-files)
 
+
+;; PROJECTILE
+(projectile-global-mode)
+(setq projectile-enable-caching t)
+
+; Ace-Jump
 (require 'ace-jump-mode)
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 (autoload

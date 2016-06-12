@@ -5,19 +5,22 @@
 (dolist (path config-paths)
   (add-to-list 'load-path (concat user-emacs-directory path)))
 
-(require 'my-core)
-(require 'asg-elixir)
-(require 'asg-scala)
-;(require 'asg-swift)
-(require 'asg-clojure)
+(defun load-languages ()
+  "Load languages"
+  (require 'asg-elixir)
+  (require 'asg-scala)
+  (require 'asg-clojure))
 
+(load-languages)
+
+(require 'asg-common)
+(require 'asg-http)
+(require 'asg-git)
+(require 'asg-core)
 (require 'find-file-in-repository)
-
 (require 'asg-navigation)
-
 (require 'dired-details)
 (dired-details-install)
-
 (require 'livedown)
 
 ;; Always pick up the most recent file from the filesystem
@@ -48,6 +51,5 @@
  ;; If there is more than one, they won't work right.
  )
 
-(require 'asg-ruby)
 (require 'spark)
 (require 'asg-docker)

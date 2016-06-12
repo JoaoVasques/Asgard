@@ -1,20 +1,16 @@
 ;; Core modules
 
-(provide 'my-core)
+(provide 'asg-core)
 
-(setq-local my-core-packages '(multiple-cursors
-				move-text find-file-in-repository dired-details
-				ace-jump-mode yasnippet window-numbering neotree
+(require 'asg-common)
+
+(asg-load-packages '(move-text
+        find-file-in-repository dired-details
+				ace-jump-mode yasnippet window-numbering
 				whitespace key-chord cl auto-complete pallet yaml-mode
-				magit feature-mode tidy rainbow-delimiters key-chord
+				feature-mode tidy rainbow-delimiters key-chord
 				markdown-mode slime yafolding multi-term json-mode
-				flycheck google-this powerline
-				))
-
-;; install the packages that are missing, if any
-(dolist (package my-core-packages)
-	(unless (package-installed-p package)
-		(package-install package)))
+				flycheck google-this powerline cl))
 
 ;; Put temporary and backup files elsewhere
 (setq auto-save-file-name-transforms
@@ -25,26 +21,15 @@
 (setq create-lockfiles nil)
 
 ;; Powerline
-(require 'powerline)
 (powerline-default-theme)
 
-;; Json Mode
-(require 'json-mode)
-
 ;; MultiTerm
-(require 'multi-term)
 (setq multi-term-program "/bin/zsh")
 
-(require 'yasnippet)
-;(yas-global-mode 1)
-
-(require 'window-numbering)
+;; Window numbering
 (window-numbering-mode 1)
 
-(require 'neotree)
-(global-set-key (kbd "s-d") 'neotree-toggle)
-
-(require 'whitespace)
+;; Whitespace
 (setq whitespace-line-column 120)
 (setq whitespace-style '(face lines-tail))
 (global-whitespace-mode +1)
@@ -61,13 +46,12 @@
   (save-some-buffers t))
 (add-hook 'focus-out-hook 'save-all)
 
-(require 'key-chord)
+;; Keychord
 (key-chord-mode 1)
 
 (set-frame-font "Source Code Pro-18" nil t)
 
 ;; Exit emacs w/o prompts
-(require 'cl)
 (defadvice save-buffers-kill-emacs (around no-query-kill-emacs activate)
            (flet ((process-list ())) ad-do-it))
 
@@ -77,14 +61,12 @@
 (global-set-key [C-wheel-up] '(lambda () (interactive) (text-scale-increase 1)))
 (global-set-key [C-wheel-down] '(lambda () (interactive) (text-scale-decrease 1)))
 
-(require 'auto-complete)
-(require 'pallet)
 
 (custom-set-variables
  '(markdown-command "/usr/local/bin/pandoc"))
 
-(require 'yaml-mode)
-    (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+;; YAML module
+(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 
 ; Adds suport for Dash
 (autoload 'dash-at-point "dash-at-point"
@@ -92,9 +74,6 @@
 (global-set-key "\C-cd" 'dash-at-point)
 (global-set-key "\C-ce" 'dash-at-point-with-docset)
 
-(require 'magit)
-
-(require 'feature-mode)
 (add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))
 (setq feature-default-language "ruby")
 
