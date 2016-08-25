@@ -9,6 +9,7 @@
          (asg-load-packages '(clojure-mode cider))
          (add-hook 'clojure-mode-hook #'subword-mode)
          (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
+         (add-hook 'clojure-mode-hook #'aggressive-indent-mode)
          )
         ))
 

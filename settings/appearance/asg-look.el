@@ -24,11 +24,11 @@
     ))
 
 (defun asgard-theme ()
-  (if (package-installed-p 'monokai-theme)
-      (load-theme 'monokai t)
+  (if (package-installed-p 'dracula-theme)
+      (load-theme 'dracula t)
     (progn
-      (package-install 'monokai-theme)
-      (load-theme 'monokai t))))
+      (package-install 'dracula-theme)
+      (load-theme 'dracula t))))
 
 (defun bf-pretty-print-xml-region (begin end)
   "Pretty format XML markup in region. You need to have nxml-mode
