@@ -12,6 +12,8 @@
 				markdown-mode slime yafolding multi-term json-mode
 				flycheck google-this powerline cl))
 
+(electric-pair-mode)
+
 ;; Put temporary and backup files elsewhere
 (setq auto-save-file-name-transforms
           `((".*" ,(concat user-emacs-directory "auto-save/") t)))
