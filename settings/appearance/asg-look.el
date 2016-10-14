@@ -2,36 +2,33 @@
 
 (provide 'asg-look)
 
+(require 'asg-common)
+
 ;; Use M-x customize-variable frame-background-mode to change
 (setq frame-background-mode 'dark)
 
-;; allow the use of curly brackets
-(setq mac-option-modifier nil
-      mac-command-modifier 'meta
-      x-select-enable-clipboard t)
-(put 'erase-buffer 'disabled nil)
+;; allow the use of curly brackets on Mac OS
+(defun setup-mac-os-settings ()
+  (when (is-mac-osx?)
+    (setq mac-option-modifier nil
+          mac-command-modifier 'meta
+          x-select-enable-clipboard t)
+    (put 'erase-buffer 'disabled nil)))
 
 ;Setup emacs terminal colors
-(setq term-default-bg-color "#040000") ; background
-(setq term-default-fg-color "#06d4f2") ; letters
+(defun setup-terminal-color ()
+  (let ((term-background-color "#040000")
+        (term-letters-color "#06d4f2"))
+    (setq term-default-bg-color term-background-color) ; background
+    (setq term-default-fg-color term-letters-color) ; letters
+    ))
 
-; Setup Theme
- (if (package-installed-p 'monokai-theme)
-     (load-theme 'monokai t)
-   (progn
-     (package-install 'monokai-theme)
-     (load-theme 'monokai t)
-     ))
-
-; Disable scroll bar
-(scroll-bar-mode -1)
-
-;Set font size
-(set-face-attribute 'default nil :height 110)
-
-;System monitoring bar
-(require 'symon)
-(symon-mode)
+(defun asgard-theme ()
+  (if (package-installed-p 'dracula-theme)
+      (load-theme 'dracula t)
+    (progn
+      (package-install 'dracula-theme)
+      (load-theme 'dracula t))))
 
 (defun bf-pretty-print-xml-region (begin end)
   "Pretty format XML markup in region. You need to have nxml-mode
@@ -48,5 +45,16 @@ by using nxml's indentation rules."
       (indent-region begin end))
     (message "Ah, much better!"))
 
-(require 'rainbow-delimiters)
-(add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
+(defun init-asg-look ()
+  (setup-mac-os-settings)
+  (setup-terminal-color)
+  (asgard-theme)
+  (scroll-bar-mode -1)   ; Disable scroll bar
+  (set-face-attribute 'default nil :height 110) ;Set font size
+  (require 'symon) ;System monitoring bar
+  (symon-mode)
+  (require 'rainbow-delimiters)
+  (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode))
+
+(init-asg-look)
+

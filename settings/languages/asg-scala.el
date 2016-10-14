@@ -9,7 +9,6 @@
          ;; If necessary, make sure "sbt" and "scala" are in the PATH environment
          (setq exec-path (append exec-path '("/usr/local/bin/")))
          (asg-load-packages '(ensime scala-mode))
-
          ;; Start ensime with Super-e
          (global-set-key (kbd "C-c C-c c") 'ensime)
 

@@ -2,15 +2,15 @@
 
 (provide 'asg-clojure)
 
-(setq-local my-clojure-packages '(clojure-mode))
+(require 'asg-common)
 
-(dolist (package my-clojure-packages)
-  (unless (package-installed-p package)
-    (package-install package)))
+(defun load-asg-clojure ()
+  (cond ((asg-command-exists? "which lein") 
+         (asg-load-packages '(clojure-mode cider))
+         (add-hook 'clojure-mode-hook #'subword-mode)
+         (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
+         (add-hook 'clojure-mode-hook #'aggressive-indent-mode)
+         )
+        ))
 
-(require 'clojure-mode)
-
-; Clojure setup
-
-(add-hook 'clojure-mode-hook #'subword-mode)
-(add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
+(load-asg-clojure)
