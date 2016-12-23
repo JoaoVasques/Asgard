@@ -1,6 +1,12 @@
 (provide 'asgard-config)
 
-(setq-local config-paths '("settings" "settings/languages" "settings/appearance" "settings/tools" "settings/navigation"))
+(setq-local config-paths '(
+                           "settings"
+                           "settings/languages"
+                           "settings/appearance"
+                           "settings/tools"
+                           "settings/navigation"
+                           "settings/commons"))
 
 (dolist (path config-paths)
   (add-to-list 'load-path (concat user-emacs-directory path)))

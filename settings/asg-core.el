@@ -4,13 +4,13 @@
 
 (require 'asg-common)
 
-(asg-load-packages '(move-text
+(asg-load-packages '(
         find-file-in-repository dired-details
 				ace-jump-mode yasnippet window-numbering
-				whitespace key-chord cl auto-complete pallet yaml-mode
+				whitespace key-chord auto-complete pallet yaml-mode
 				feature-mode tidy rainbow-delimiters key-chord
 				markdown-mode slime yafolding multi-term json-mode
-				flycheck google-this powerline cl))
+				flycheck spaceline cl))
 
 (electric-pair-mode)
 
@@ -23,7 +23,8 @@
 (setq create-lockfiles nil)
 
 ;; Powerline
-(powerline-default-theme)
+(require 'spaceline-config)
+(spaceline-emacs-theme)
 
 ;; MultiTerm
 (setq multi-term-program "/bin/zsh")
@@ -48,9 +49,6 @@
   (save-some-buffers t))
 (add-hook 'focus-out-hook 'save-all)
 
-;; Keychord
-(key-chord-mode 1)
-
 (set-frame-font "Source Code Pro-18" nil t)
 
 ;; Exit emacs w/o prompts
@@ -63,18 +61,11 @@
 (global-set-key [C-wheel-up] '(lambda () (interactive) (text-scale-increase 1)))
 (global-set-key [C-wheel-down] '(lambda () (interactive) (text-scale-decrease 1)))
 
-
 (custom-set-variables
  '(markdown-command "/usr/local/bin/pandoc"))
 
 ;; YAML module
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
-
-; Adds suport for Dash
-(autoload 'dash-at-point "dash-at-point"
-          "Search the word at point with Dash." t nil)
-(global-set-key "\C-cd" 'dash-at-point)
-(global-set-key "\C-ce" 'dash-at-point-with-docset)
 
 (add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))
 (setq feature-default-language "ruby")

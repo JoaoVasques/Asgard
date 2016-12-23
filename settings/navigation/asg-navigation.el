@@ -13,10 +13,6 @@
 (global-set-key (kbd "M-s M-m") 'magit-status)
 (global-set-key (kbd "M-s M-/") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-x C-M-f") 'find-file-in-repository)
-(global-set-key (kbd "C-c C-r r") 'ensime-refactor-rename)
-(global-set-key (kbd "C-c C-o i") 'ensime-refactor-organize-imports)
-(global-set-key (kbd "C-c C-i l") 'ensime-refactor-inline-local)
-(global-set-key (kbd "C-c C-t i") 'ensime-inspect-by-path)
 (put 'dired-find-alternate-file 'disabled nil)
 
 ;;Uncomment the below to hide the menu
@@ -129,5 +125,3 @@
 (defun save-all () (interactive) (save-some-buffers t))
 (global-set-key (kbd "S-s") 'save-all)
 
-(global-set-key (kbd "s-R") 'ensime-inf-eval-buffer)
-(global-set-key (kbd "s-r") 'ensime-inf-eval-region)

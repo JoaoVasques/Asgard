@@ -51,8 +51,6 @@ by using nxml's indentation rules."
   (asgard-theme)
   (scroll-bar-mode -1)   ; Disable scroll bar
   (set-face-attribute 'default nil :height 110) ;Set font size
-  (require 'symon) ;System monitoring bar
-  (symon-mode)
   (require 'rainbow-delimiters)
   (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode))
 

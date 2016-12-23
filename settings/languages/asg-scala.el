@@ -3,15 +3,23 @@
 (require 'asg-common)
 
 (defun load-asg-scala ()
-  (cond ((asg-command-exists? "which sbt")
+  ;(cond ((asg-command-exists? "which sbt")
          (asg-load-packages '(multiple-cursors))
 
          ;; If necessary, make sure "sbt" and "scala" are in the PATH environment
          (setq exec-path (append exec-path '("/usr/local/bin/")))
          (asg-load-packages '(ensime scala-mode))
+
          ;; Start ensime with Super-e
          (global-set-key (kbd "C-c C-c c") 'ensime)
+         (global-set-key (kbd "s-R") 'ensime-inf-eval-buffer)
+         (global-set-key (kbd "s-r") 'ensime-inf-eval-region)
 
+         (global-set-key (kbd "C-c C-r r") 'ensime-refactor-rename)
+         (global-set-key (kbd "C-c C-o i") 'ensime-refactor-organize-imports)
+         (global-set-key (kbd "C-c C-i l") 'ensime-refactor-inline-local)
+         (global-set-key (kbd "C-c C-t i") 'ensime-inspect-by-path)
+         
          (setq ensime-sem-high-faces
                '(
                  (var . (:foreground "#ff2222"))
@@ -27,7 +35,9 @@
                  ))
 
          (global-set-key (kbd "s-T") 'jump-to-test)
-         )))
+         )
+;)
+;)
 
 (defun jump-to-test ()
   "Jump to correspnding test file"
