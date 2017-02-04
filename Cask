@@ -58,6 +58,15 @@
 (depends-on "clojure-mode")
 (depends-on "cider")
 
+;; Python
+(depends-on "jedi")
+(depends-on "virtualenvwrapper")
+(depends-on "anaconda-mode")
+
 ; FUN
 (depends-on "pacmacs")
 
+; Data Science
+(depends-on "ess")
+(depends-on "ess-R-data-view")
+(depends-on "ess-smart-underscore")
