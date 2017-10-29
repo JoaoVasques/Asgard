@@ -49,7 +49,7 @@
   (save-some-buffers t))
 (add-hook 'focus-out-hook 'save-all)
 
-(set-frame-font "Source Code Pro-18" nil t)
+;(set-frame-font "Source Code Pro-18" nil t)
 
 ;; Exit emacs w/o prompts
 (defadvice save-buffers-kill-emacs (around no-query-kill-emacs activate)

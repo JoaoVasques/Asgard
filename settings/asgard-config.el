@@ -15,7 +15,8 @@
   "Load languages"
   (require 'asg-elixir)
   (require 'asg-scala)
-  (require 'asg-clojure))
+  (require 'asg-clojure)
+  (require 'asg-python))
 
 (load-languages)
 

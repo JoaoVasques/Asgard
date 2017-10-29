@@ -34,8 +34,10 @@
 
 ; APPEARANCE
 (depends-on "dracula-theme")
+(depends-on "doom-themes")
 (depends-on "spaceline")
 (depends-on "cl")
+(depends-on "all-the-icons")
 
 ; PROGRAMMING
 (depends-on "smartparens")
@@ -62,6 +64,7 @@
 (depends-on "jedi")
 (depends-on "virtualenvwrapper")
 (depends-on "anaconda-mode")
+(depends-on "company-anaconda")
 
 ; FUN
 (depends-on "pacmacs")

@@ -24,11 +24,11 @@
     ))
 
 (defun asgard-theme ()
-  (if (package-installed-p 'dracula-theme)
-      (load-theme 'dracula t)
+  (if (package-installed-p 'doom-themes)
+      (load-theme 'doom-one t)
     (progn
-      (package-install 'dracula-theme)
-      (load-theme 'dracula t))))
+      (package-install 'doom-themes)
+      (load-theme 'doom-one t))))
 
 (defun bf-pretty-print-xml-region (begin end)
   "Pretty format XML markup in region. You need to have nxml-mode
@@ -49,10 +49,18 @@ by using nxml's indentation rules."
   (setup-mac-os-settings)
   (setup-terminal-color)
   (asgard-theme)
+  ;; Enable flashing mode-line on errors
+  (doom-themes-visual-bell-config)
+
+  ;; Enable custom neotree theme
+  (doom-themes-neotree-config)  ; all-the-icons fonts must be installed!
   (scroll-bar-mode -1)   ; Disable scroll bar
   (set-face-attribute 'default nil :height 110) ;Set font size
   (require 'rainbow-delimiters)
-  (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode))
+  (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
+  (require 'all-the-icons)
+  (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+  )
 
 (init-asg-look)
 
